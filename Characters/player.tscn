@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgbui2h43xsw4"]
+[gd_scene load_steps=18 format=3 uid="uid://dgbui2h43xsw4"]
 
 [ext_resource type="Script" path="res://Scripts/player-movement.gd" id="1_f3036"]
 [ext_resource type="Texture2D" uid="uid://b4genbdigdg55" path="res://Art/characters.png" id="1_ib815"]
@@ -6,6 +6,130 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13k3s"]
 radius = 7.0
 height = 23.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysu70"]
+atlas = ExtResource("1_ib815")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j661w"]
+atlas = ExtResource("1_ib815")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mqq"]
+atlas = ExtResource("1_ib815")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axjxb"]
+atlas = ExtResource("1_ib815")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iaup"]
+atlas = ExtResource("1_ib815")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om1nf"]
+atlas = ExtResource("1_ib815")
+region = Rect2(448, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dor2"]
+atlas = ExtResource("1_ib815")
+region = Rect2(480, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_884ge"]
+atlas = ExtResource("1_ib815")
+region = Rect2(512, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6cj7"]
+atlas = ExtResource("1_ib815")
+region = Rect2(544, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n0ij"]
+atlas = ExtResource("1_ib815")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvie"]
+atlas = ExtResource("1_ib815")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df1a5"]
+atlas = ExtResource("1_ib815")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwwde"]
+atlas = ExtResource("1_ib815")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm178"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysu70")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j661w")
+}],
+"loop": false,
+"name": &"jump_end",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1mqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axjxb")
+}],
+"loop": true,
+"name": &"jump_normal",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iaup")
+}],
+"loop": false,
+"name": &"jump_start",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om1nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dor2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_884ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6cj7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n0ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyvie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df1a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwwde")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_f3036")
@@ -15,8 +139,8 @@ position = Vector2(0, 4.5)
 shape = SubResource("CapsuleShape2D_13k3s")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Characters" type="Sprite2D" parent="."]
-texture = ExtResource("1_ib815")
-hframes = 23
-vframes = 4
-frame = 23
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hm178")
+animation = &"jump_start"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
