@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/player-movement.gd" id="1_f3036"]
 [ext_resource type="Texture2D" uid="uid://b4genbdigdg55" path="res://Art/characters.png" id="1_ib815"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13k3s"]
-radius = 7.0
-height = 23.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysu70"]
 atlas = ExtResource("1_ib815")
 region = Rect2(0, 64, 32, 32)
@@ -131,16 +127,20 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13k3s"]
+radius = 7.0
+height = 21.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_f3036")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
-shape = SubResource("CapsuleShape2D_13k3s")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hm178")
 animation = &"jump_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("CapsuleShape2D_13k3s")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

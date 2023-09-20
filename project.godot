@@ -13,7 +13,10 @@ config_version=5
 config/name="d.compose"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://Art/icon/splash.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://Art/icon/icon_normal.png"
 
 [display]
 

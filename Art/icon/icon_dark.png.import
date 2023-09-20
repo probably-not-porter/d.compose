@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duncf5kk4xapy"
-path="res://.godot/imported/2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes).png-55014efdd0405bce0c97950e84ebfe15.ctex"
+uid="uid://bptn0i7ccce8"
+path="res://.godot/imported/icon_dark.png-48e8a4b0428427451e90c76bf9981c0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes).png"
-dest_files=["res://.godot/imported/2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes).png-55014efdd0405bce0c97950e84ebfe15.ctex"]
+source_file="res://Art/icon/icon_dark.png"
+dest_files=["res://.godot/imported/icon_dark.png-48e8a4b0428427451e90c76bf9981c0b.ctex"]
 
 [params]
 
